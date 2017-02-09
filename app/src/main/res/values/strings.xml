@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NJLib</string>
+    <string name="search_hint">请输入书名/ISBN号</string>
+    <string name="search_history">搜索历史</string>
+</resources>

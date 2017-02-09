@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "332863611870",
+    "firebase_url": "https://njlib-a39bb.firebaseio.com",
+    "project_id": "njlib-a39bb",
+    "storage_bucket": "njlib-a39bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332863611870:android:8e1329aeb45d975e",
+        "android_client_info": {
+          "package_name": "com.all2h.njlib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332863611870-vqb5p8t0pac4nj218kr2414rag0qrcl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3da3L6MxeitaDvDvw3dfab7iEvp6dWJo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332863611870-vqb5p8t0pac4nj218kr2414rag0qrcl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
