@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.all2h.njlib.HistoryListAdapter;
 
@@ -17,7 +18,7 @@ import java.util.Collections;
 import java.util.Objects;
 
 public class SearchActivity extends AppCompatActivity {
-    private RecyclerView.Adapter mAdapter;
+    private HistoryListAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private SharedPreferences history;
     private SharedPreferences.Editor editor;
@@ -31,30 +32,45 @@ public class SearchActivity extends AppCompatActivity {
         editor = history.edit();
         initData();
         initView();
+
+
     }
 
     public void search2(View button){
         //把搜索框的文字保存进历史记录
         EditText searchText = (EditText) findViewById(R.id.searchText);
-        insertWord(searchText.getText().toString());
+        if(!Objects.equals(searchText.getText().toString().replace(" ", ""), "")) {
 
-        startSearch(searchText.getText().toString(),ResultListActivity2.class);
-        //刷新历史记录list
-        initData();
-        initView();
+            insertWord(searchText.getText().toString().replace(" ",""));
+
+            startSearch(searchText.getText().toString(), ResultListActivity2.class);
+            //刷新历史记录list
+            initData();
+            initView();
+        }else{
+            Toast.makeText(getApplicationContext(), "关键词不得为空", Toast.LENGTH_SHORT).show();
+            clearSearchText();
+        }
 
 
         //此处应当跳转activity并把搜索框的文字带过去
     }
     public void search(View button){
+
         //把搜索框的文字保存进历史记录
         EditText searchText = (EditText) findViewById(R.id.searchText);
-        insertWord(searchText.getText().toString());
+        if(!Objects.equals(searchText.getText().toString().replace(" ", ""), "")) {
 
-        startSearch(searchText.getText().toString(),ResultListActivity.class);
-        //刷新历史记录list
-        initData();
-        initView();
+            insertWord(searchText.getText().toString().replace(" ",""));
+
+            startSearch(searchText.getText().toString(), ResultListActivity.class);
+            //刷新历史记录list
+            initData();
+            initView();
+        }else{
+            Toast.makeText(getApplicationContext(), "关键词不得为空", Toast.LENGTH_SHORT).show();
+            clearSearchText();
+        }
 
 
         //此处应当跳转activity并把搜索框的文字带过去
@@ -118,6 +134,25 @@ public class SearchActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         // 设置adapter
         mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.addOnItemTouchListener(new ItemClickListener(getApplicationContext(), mRecyclerView, new ItemClickListener.OnItemClickListener() {
+
+//            长按监听
+//            @Override
+//            public void onItemLongClick(View view, int position) {
+//                Toast.makeText(getApplicationContext(), "长按"+ getData().get(position), Toast.LENGTH_SHORT).show();
+//            }
+            //短按
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getApplicationContext(), "短按"+ getData().get(position), Toast.LENGTH_SHORT).show();
+                startSearch(getData().get(position),ResultListActivity2.class);
+                insertWord(getData().get(position));
+                initData();
+                initView();
+            }
+        }));
+
     }
 
     private ArrayList<String> getData() {
