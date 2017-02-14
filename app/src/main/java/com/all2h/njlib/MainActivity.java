@@ -17,7 +17,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import static com.all2h.njlib.R.styleable.View;
 
 public class MainActivity extends AppCompatActivity {
 

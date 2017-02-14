@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 
+import com.all2h.njlib.HistoryListAdapter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -31,12 +33,25 @@ public class SearchActivity extends AppCompatActivity {
         initView();
     }
 
+    public void search2(View button){
+        //把搜索框的文字保存进历史记录
+        EditText searchText = (EditText) findViewById(R.id.searchText);
+        insertWord(searchText.getText().toString());
+
+        startSearch(searchText.getText().toString(),ResultListActivity2.class);
+        //刷新历史记录list
+        initData();
+        initView();
+
+
+        //此处应当跳转activity并把搜索框的文字带过去
+    }
     public void search(View button){
         //把搜索框的文字保存进历史记录
         EditText searchText = (EditText) findViewById(R.id.searchText);
         insertWord(searchText.getText().toString());
 
-        startSearch(searchText.getText().toString());
+        startSearch(searchText.getText().toString(),ResultListActivity.class);
         //刷新历史记录list
         initData();
         initView();
@@ -127,8 +142,8 @@ public class SearchActivity extends AppCompatActivity {
     }
 
 
-    private void startSearch(String word) {
-        Intent intent = new Intent(SearchActivity.this,ResultListActivity.class);
+    private void startSearch(String word,Class targetClass) {
+        Intent intent = new Intent(SearchActivity.this,targetClass);
 
         intent.putExtra("keyWord",word);
         startActivity(intent);

@@ -14,7 +14,6 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import android.os.Handler;
-import android.widget.TextView;
 
 
 public class ResultListActivity extends AppCompatActivity {
@@ -105,11 +104,6 @@ public class ResultListActivity extends AppCompatActivity {
                     Log.i("mytag", e.toString());
                 }
                 mHandler.sendEmptyMessage(0);
-                Message msg = new Message();
-                Bundle bundle = new Bundle();
-                bundle.putString("resultText",resultNumText);
-                msg.setData(bundle);
-                msg.sendToTarget();
 
             }
         }).start();

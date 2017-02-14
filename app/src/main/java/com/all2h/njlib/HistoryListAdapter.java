@@ -45,6 +45,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         return mData == null ? 0 : mData.size();
     }
 
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView item;
