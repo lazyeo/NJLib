@@ -10,7 +10,7 @@ android:paddingBottom="@dimen/activity_vertical_margin"
 android:paddingLeft="@dimen/activity_horizontal_margin"
 android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
-tools:context="com.all2h.njlib.TheAdapter.MainActivity">
+tools:context="com.all2h.njlib.MainActivity">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -22,7 +22,15 @@ tools:context="com.all2h.njlib.TheAdapter.MainActivity">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="搜索"
-            android:onClick="toActivity"/>
+            android:onClick="toActivity"
+            android:id="@+id/search"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描"
+            android:onClick="toActivity"
+            android:id="@+id/scan"/>
+
 </LinearLayout>
 
 <RelativeLayout
@@ -43,9 +51,10 @@ tools:context="com.all2h.njlib.TheAdapter.MainActivity">
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"/>
 </RelativeLayout>
-<RelativeLayout
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +70,25 @@ tools:context="com.all2h.njlib.TheAdapter.MainActivity">
             android:text="测试"
             android:id="@+id/binding"
             android:onClick="binding"/>
-</RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生成二维码"
+            android:onClick="createImg"
+            android:id="@+id/create_qr"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="生成条形码"
+        android:onClick="createImg"
+        android:id="@+id/create_bar"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/code_img"/>
+</LinearLayout>
 
 
 </LinearLayout>

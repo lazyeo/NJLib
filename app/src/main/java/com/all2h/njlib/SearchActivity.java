@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.all2h.njlib.HistoryListAdapter;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -36,27 +34,7 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-    public void search2(View button){
-        //把搜索框的文字保存进历史记录
-        EditText searchText = (EditText) findViewById(R.id.searchText);
-        if(!Objects.equals(searchText.getText().toString().replace(" ", ""), "")) {
-
-            insertWord(searchText.getText().toString().replace(" ",""));
-
-            startSearch(searchText.getText().toString(), ResultListActivity2.class);
-            //刷新历史记录list
-            initData();
-            initView();
-        }else{
-            Toast.makeText(getApplicationContext(), "关键词不得为空", Toast.LENGTH_SHORT).show();
-            clearSearchText();
-        }
-
-
-        //此处应当跳转activity并把搜索框的文字带过去
-    }
     public void search(View button){
-
         //把搜索框的文字保存进历史记录
         EditText searchText = (EditText) findViewById(R.id.searchText);
         if(!Objects.equals(searchText.getText().toString().replace(" ", ""), "")) {
@@ -75,6 +53,8 @@ public class SearchActivity extends AppCompatActivity {
 
         //此处应当跳转activity并把搜索框的文字带过去
     }
+
+
 
     public void clear(View button){
         editor.clear();
@@ -146,7 +126,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(getApplicationContext(), "短按"+ getData().get(position), Toast.LENGTH_SHORT).show();
-                startSearch(getData().get(position),ResultListActivity2.class);
+                startSearch(getData().get(position),ResultListActivity.class);
                 insertWord(getData().get(position));
                 initData();
                 initView();

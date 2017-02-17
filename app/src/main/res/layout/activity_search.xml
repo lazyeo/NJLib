@@ -28,12 +28,6 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="搜索2"
-            android:id="@+id/search_button2"
-            android:onClick="search2"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="清除"
             android:id="@+id/clear_button"
             android:onClick="clear"/>
