@@ -57,6 +57,7 @@ public class ResultListActivity extends AppCompatActivity {
                     mAdapter.setLoadMoreData(moreData);
                     moreData.clear();
                     itemNum = itemNum + 10;
+                    break;
                 default:
                     break;
             }
@@ -103,6 +104,7 @@ public class ResultListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(ViewHolder viewHolder, ArrayList<String> data, int position) {
                 Toast.makeText(ResultListActivity.this, data.get(0), Toast.LENGTH_SHORT).show();
+                bookDetail(data.get(7),BookDetailActivity.class);
 
             }
 
@@ -113,6 +115,7 @@ public class ResultListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(layoutManager);
 
         mRecyclerView.setAdapter(mAdapter);
+
 
 
 
@@ -140,7 +143,7 @@ public class ResultListActivity extends AppCompatActivity {
                     Elements a = doc.select("a");
 
 
-
+                   //判断并获取下一页链接地址
                     for (int i=0;i<a.size();i++){
 
 //                            Log.i("第"+i+"条",a.get(i).text());
@@ -149,12 +152,8 @@ public class ResultListActivity extends AppCompatActivity {
                                 break;
                             }
                     }
-
 //                    Log.i("下一页",nextPageUrl);
-
-
                     String[] temp = nextPageUrl.split("\\?");
-
                     nextPageUrl = temp[0];
 
 
@@ -187,6 +186,8 @@ public class ResultListActivity extends AppCompatActivity {
                         itemData.add(items.get(i).select("td.libs").text().replace(" ",""));
                         //封面图片URL
                         itemData.add(items.get(i).select("td.cover").select("img").attr("src"));
+                        //书籍详情URL
+                        itemData.add(items.get(i).select("td.cover").select("a").attr("href"));
 
                         data.add(itemData);
                     }
@@ -248,6 +249,8 @@ public class ResultListActivity extends AppCompatActivity {
                         itemData.add(items.get(i).select("td.libs").text().replace(" ",""));
                         //封面图片URL
                         itemData.add(items.get(i).select("td.cover").select("img").attr("src"));
+                        //书籍详情URL
+                        itemData.add(items.get(i).select("td.cover").select("a").attr("href"));
 
                         moreData.add(itemData);
                     }
@@ -262,6 +265,15 @@ public class ResultListActivity extends AppCompatActivity {
             }
         }).start();
 
+    }
+
+    private void bookDetail(String url,Class targetClass) {
+        Intent intent = new Intent(ResultListActivity.this,targetClass);
+
+        intent.putExtra("bookUrl",url);
+        startActivity(intent);
+
+        //finish();
     }
 
 }

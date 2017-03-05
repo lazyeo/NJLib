@@ -1,20 +1,13 @@
 package com.all2h.njlib;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.all2h.njlib.utils.ImageLoader;
 import com.othershe.baseadapter.ViewHolder;
 import com.othershe.baseadapter.base.CommonBaseAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by lazyeo on 03/02/2017.
@@ -28,31 +21,38 @@ public  class ResultListAdapter extends CommonBaseAdapter<ArrayList<String>> {
 
     public ResultListAdapter(Context context, ArrayList<ArrayList<String>> datas, boolean isLoadMore) {
         super(context, datas, isLoadMore);
+        ImageLoader.init(context);
     }
 
 
 
     @Override
     protected void convert(ViewHolder holder, ArrayList<String> data) {
-        Log.i("全套",data.toString());
-        Log.i("书名",data.get(0));
-        Log.i("作者",data.get(1));
-        Log.i("出版社",data.get(3));
-        Log.i("出版日期",data.get(4));
-        Log.i("馆藏信息",data.get(5));
-        Log.i("馆藏信息",data.get(6));
+//        Log.i("全套",data.toString());
+//        Log.i("书名",data.get(0));
+//        Log.i("作者",data.get(1));
+//        Log.i("出版社",data.get(3));
+//        Log.i("出版日期",data.get(4));
+//        Log.i("馆藏信息",data.get(5));
+//        Log.i("馆藏信息",data.get(6));
 
         holder.setText(R.id.book_name,data.get(0));
         holder.setText(R.id.book_autor,data.get(1));
         holder.setText(R.id.pub_house,data.get(3));
         holder.setText(R.id.pub_year,data.get(4));
         holder.setText(R.id.lib_nums,data.get(5));
+
+        ImageView img = (ImageView) holder.itemView.findViewById(R.id.book_cover);
+        ImageLoader.loadImage("http://opac.jslib.org.cn"+data.get(6),img);
+
     }
 
     @Override
     protected int getItemLayoutId() {
         return R.layout.result_list_item;
     }
+
+
 
 
 }

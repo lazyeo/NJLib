@@ -98,17 +98,17 @@
             android:background="@drawable/shouquan_qrcode_ic_back"
             android:clickable="true" />
 
-        <TextView
-            android:id="@+id/qrcode_g_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
-            android:layout_below="@id/scan_hint"
-            android:background="@drawable/shouquan_qrcode_g_gallery"
-            android:clickable="true"
+        <!--<TextView-->
+            <!--android:id="@+id/qrcode_g_gallery"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_marginLeft="30dp"-->
+            <!--android:layout_below="@id/scan_hint"-->
+            <!--android:background="@drawable/shouquan_qrcode_g_gallery"-->
+            <!--android:clickable="true"-->
 
-            android:textSize="20sp" />
+            <!--android:textSize="20sp" />-->
         <Button
             android:id="@+id/service_register_rescan"
             android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/qrcode_g_gallery"
+            android:layout_below="@id/qrcode_ic_back"
             android:visibility="visible"
             android:layout_marginTop="20dp"
 

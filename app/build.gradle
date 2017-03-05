@@ -2,11 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.all2h.njlib"
         minSdkVersion 21
         targetSdkVersion 24
+        multiDexEnabled = true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -24,7 +25,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.google.firebase:firebase-core:10.0.1'
     // jsoup HTML parser library @ http://jsoup.org/
     compile 'org.jsoup:jsoup:1.10.2'
@@ -38,8 +39,9 @@ dependencies {
     //黄油刀
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile files('libs/zxing.jar')
 
-    compile files('/Volumes/Macintosh/Users/mac/Dropbox/Develop/Android/NJLib/libs/zxing.jar')
+    compile 'com.jakewharton:disklrucache:2.0.2'
 }
 
 

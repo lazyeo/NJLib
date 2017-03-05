@@ -1,4 +1,4 @@
-package com.all2h.njlib;
+package com.all2h.njlib.utils;
 
 import android.util.Log;
 
@@ -6,7 +6,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +64,8 @@ public class JsoupUtil {
                         itemData.add(items.get(i).select("td.libs").text().replace(" ",""));
                         //封面图片URL
                         itemData.add(items.get(i).select("td.cover").select("img").attr("src"));
-
+                        //书籍详情URL
+                        itemData.add(items.get(i).select("td.cover").select("a").attr("href"));
 
 
                         data.add(itemData);

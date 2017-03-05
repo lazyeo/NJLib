@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.scan:
                 startActivity(CommonScanActivity.class);
                 break;
+            case R.id.book_detail:
+                startActivity(DouBanBookDetailActivity.class);
+                break;
         }
 
 

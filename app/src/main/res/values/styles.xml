@@ -33,8 +33,18 @@
         <!-- 设置dialog的半透明背景的灰度 -->
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
+
     <style name="my_style">
         <item name="android:windowEnterAnimation">@anim/shouquan_dialog_enter</item>
         <item name="android:windowExitAnimation">@anim/shouquan_dialog_exit</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

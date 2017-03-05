@@ -56,7 +56,7 @@ public final class CommonScanActivity extends Activity implements ScanListener, 
     ImageView scanLine;
     ScanManager scanManager;
     TextView iv_light;
-    TextView qrcode_g_gallery;
+//    TextView qrcode_g_gallery;
     TextView qrcode_ic_back;
     final int PHOTOREQUESTCODE = 1111;
 
@@ -109,8 +109,8 @@ public final class CommonScanActivity extends Activity implements ScanListener, 
         scanContainer = findViewById(R.id.capture_container);
         scanCropView = findViewById(R.id.capture_crop_view);
         scanLine = (ImageView) findViewById(R.id.capture_scan_line);
-        qrcode_g_gallery = (TextView) findViewById(R.id.qrcode_g_gallery);
-        qrcode_g_gallery.setOnClickListener(this);
+//        qrcode_g_gallery = (TextView) findViewById(R.id.qrcode_g_gallery);
+//        qrcode_g_gallery.setOnClickListener(this);
         qrcode_ic_back = (TextView) findViewById(R.id.qrcode_ic_back);
         qrcode_ic_back.setOnClickListener(this);
         iv_light = (TextView) findViewById(R.id.iv_light);
@@ -177,11 +177,12 @@ public final class CommonScanActivity extends Activity implements ScanListener, 
         }
     }
 
-    public void showPictures(int requestCode) {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, requestCode);
-    }
+    //打开图库
+//    public void showPictures(int requestCode) {
+//        Intent intent = new Intent(Intent.ACTION_PICK);
+//        intent.setType("image/*");
+//        startActivityForResult(intent, requestCode);
+//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -207,9 +208,9 @@ public final class CommonScanActivity extends Activity implements ScanListener, 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.qrcode_g_gallery:
-                showPictures(PHOTOREQUESTCODE);
-                break;
+//            case R.id.qrcode_g_gallery:
+//                showPictures(PHOTOREQUESTCODE);
+//                break;
             case R.id.iv_light:
                 scanManager.switchLight();
                 break;
